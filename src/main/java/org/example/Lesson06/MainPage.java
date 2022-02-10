@@ -11,6 +11,7 @@ public class MainPage extends BasePage{
     public MainPage(WebDriver driver) {
         super(driver);
     }
+
     @FindBy(xpath = "//input[@placeholder='логин']")
     private WebElement loginInput;
 
@@ -20,17 +21,17 @@ public class MainPage extends BasePage{
     @FindBy(xpath = "//button[@class='btn btn-default btn-xs']")
     private WebElement loginButton;
 
-    @Step("Login plays")
-    public MainPage fillLogin(Spring login){
+    @Step("Send login go login")
+    public MainPage fillLogin(String login){
         loginInput.sendKeys(login);
         return this;
     }
-    @Step("password plays")
-    public MainPage fillPassword(Spring password){
+    @Step("Send password to password")
+    public MainPage fillPassword(String password){
         passwordInput.sendKeys(password);
         return this;
     }
-    @Step("click on button")
+    @Step("click on button Enter")
     public MainPage clickLoginButton() {
         try {
             Thread.sleep(1000);
@@ -44,6 +45,40 @@ public class MainPage extends BasePage{
             e.printStackTrace();
         }
         return new MainPage(driver);
+    }
+
+    @FindBy(xpath = "//a[@href='/autor15']")
+    private WebElement authorButton;
+
+    @FindBy(xpath = "//a[contains(text(),'Рейтинги')]")
+    private WebElement reitingButton;
+
+    @FindBy(xpath = "//div[contains(@onclick, 'selShow(this,10879')]")
+    private WebElement bookButton;
+
+    @FindBy(xpath = "//*[@id=\"me_7\"]")
+    private WebElement markBook;
+
+    @Step("Move to top")
+    public MainPage clickOnTop(){
+        reitingButton.click();
+        return this;
+    }
+
+    @Step("Move to Autor")
+    public MainPage clickOnAutor(){
+        authorButton.click();
+        return this;
+    }
+    @Step("Move to Book")
+    public MainPage clickOnBook(){
+        bookButton.click();
+        return this;
+    }
+    @Step("Mark Book")
+    public MainPage clickOnMark(){
+        markBook.click();
+        return this;
     }
 
 

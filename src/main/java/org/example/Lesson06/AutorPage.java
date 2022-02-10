@@ -10,17 +10,7 @@ public class AutorPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//a[@href='/autor15']")
-    private WebElement authorButton;
 
-    @FindBy(xpath = "//a[contains(text(),'Рейтинги')]")
-    private WebElement reitingButton;
-
-    @FindBy(xpath = "//div[contains(@onclick, 'selShow(this,10879')]")
-    private WebElement bookButton;
-
-    @FindBy(xpath = "//*[@id=\"me_7\"]")
-    private WebElement markBook;
 
     @Step("check mark")
     public AutorPage checkBookMark(){
